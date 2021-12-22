@@ -1,0 +1,44 @@
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 21:12:09 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-15 21:55:30
+ */
+
+/* 底部导航栏 */
+.cc-navbar {
+    display: flex;
+    position: fixed;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    max-width: 640px;
+    height: 2.5rem;
+    border-top: 1px solid #ddd;
+    z-index: 200;
+    background: #f8f8f8;
+    text-align: center;
+}
+
+/* 导航项目 */
+.cc-navbar>.navbar-item {
+    flex: 1;
+    color: #808080;
+}
+
+/* 被选中的样式 */
+.cc-navbar > .navbar-item.active{
+    color: #09BB07;
+}
+
+/* 导航图标 */
+.cc-navbar > .navbar-item > .icon{
+    padding: .3rem 0 .1rem;
+    font-size: 1.1rem;
+}
+
+/* 导航名称 */
+.cc-navbar > .navbar-item > .name{
+    display: block;
+    font-size: .5rem;
+}

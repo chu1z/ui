@@ -1,0 +1,52 @@
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 21:13:22 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 22:03:51
+ */
+/* 内容区 */
+.cc-content {
+    box-sizing: border-box;
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* 根据header和navbar自动适应内容区高度 */
+.cc-header~.cc-content {
+    padding-top: 2.3rem;
+}
+
+.cc-navbar~.cc-content {
+    padding-bottom: 2.5rem;
+}
+
+/* 内容分区 -- Panel 面板 */
+/* Panel 标题 */
+.cc-content .cc-panel-title {
+    height: 1.8rem;
+    line-height: 1.8rem;
+    padding-left: 1rem;
+    color: #aaa;
+    background: #fff;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* Panel 内容区 */
+.cc-content .cc-panel-body {
+    position: relative;
+    margin-bottom: .6rem;
+    padding: .6rem 1rem;
+    background: #fff;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* 可手动设置内容区是否有内边距 */
+.cc-content .cc-panel-body.no-padding {
+    padding: 0;
+}
+

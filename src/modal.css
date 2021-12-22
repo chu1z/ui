@@ -1,0 +1,84 @@
+/*
+ * @Author: chu 
+ * @Date: 2021-12-19 22:40:25 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 23:03:03
+ */
+
+.cc-modal {
+    display: none;
+}
+
+.cc-modal.show {
+    display: block;
+}
+
+.cc-modal .cc-modal-wrap {
+    position: absolute;
+    width: 75%;
+    max-width: 480px;
+    top: 45%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #fff;
+    border-radius: .4rem;
+    z-index: 301;
+}
+
+.cc-modal .cc-modal-body{
+    padding: 1.8rem .8rem 1.5rem;
+    text-align: center;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+}
+
+/* 模态框尾部 */
+.cc-modal .cc-modal-footer{
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+/* 模态框尾部里按钮的样式 */
+.cc-modal .cc-modal-footer .cc-btn{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    font-size: .8rem;
+}
+
+/* 模态框尾部中的按钮加上分隔 */
+.cc-modal .cc-modal-footer .cc-btn + .cc-btn{
+    border-left: 1px solid #ddd;
+}
+
+/* 控制模态框内容区的内边距 */
+.cc-modal .cc-modal-body.no-padding{
+    padding: 0;
+}
+
+/* 图片形式的模态框样式 */
+.cc-modal .cc-modal-body .cc-modal-img{
+    /*有些浏览器里img默认的定位里会有个边，指定block后就去掉了*/
+    display: block;
+    width: 100%;
+    border-radius: .3rem;
+}
+
+.cc-modal .cc-modal-close{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 1.3rem;
+    line-height: 1.3rem;
+    margin: auto;
+    bottom: -3rem;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 100;
+    color: #eee;
+    border: 1px solid #eee;
+    border-radius: 50%;
+}

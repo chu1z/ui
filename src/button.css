@@ -1,0 +1,64 @@
+/*
+ * @Author: chu 
+ * @Date: 2021-12-16 22:20:11 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 22:49:14
+ */
+
+
+
+/* 按钮默认样式 */
+.cc-btn {
+    display: block;
+    position: relative;
+    width: 10rem;
+    margin: 0 auto;
+    padding: .5rem 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: .7rem;
+    text-align: center;
+    color: #000000;
+    border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    user-select:none;
+    
+}
+
+
+
+/* 定制主操作按钮样式 */
+.cc-btn.cc-btn-primary {
+    background: #1AAD19;
+    color: #fff;
+}
+
+/* 定制警示类按钮样式 */
+.cc-btn.cc-btn-warning {
+    background-color: #E64340;
+    color: #fff;
+}
+
+/* 定制不可用按钮的样式 */
+.cc-btn.cc-btn-disabled{
+    background-color: #F7F7F7;
+    color: #999;
+    opacity: .6; 
+}
+
+.cc-btn.cc-btn-large{
+    width: 100%;
+    font-size: .9rem;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+.cc-btn.cc-btn-small{
+    display: inline-block;
+    width: 3rem;
+    padding: .2rem 0;
+    font-size: .7rem;
+}

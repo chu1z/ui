@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/cc-ui.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cc-content">
+        <div class="cc-search ">
+            <form class="cc-search-form" action="#">
+                <div class="cc-search-input-wrap">
+                    <i class="fa fa-search cc-search-icon"></i>
+                    <input type="text" class="cc-search-input" placeholder="搜索" autocomplete="false" required />
+                    <i class="fa fa-close cc-search-clear"></i>
+                </div>
+                <span class="cc-search-cancel">取消</span>
+            </form>
+            <ul class="cc-search-suggest">
+                <li class="cc-suggest-item">手机</li>
+                <li class="cc-suggest-item">iPhone12</li>
+                <li class="cc-suggest-item">小米 MIX3</li>
+            </ul>
+        </div>
+        <p class="content">
+            内容区
+        </p>
+    </div>
+
+</body>
+<script>
+    window.onload = function () {
+        let ccSearch = document.querySelector('.cc-search');
+        // 输入框被选中，进入搜索模式
+        document.querySelector('.cc-search-input').addEventListener('focus', function () {
+            ccSearch.classList.add('on-focus');
+        })
+        // 点击取消，返回正常模式
+        document.querySelector('.cc-search-cancel').addEventListener('click', function () {
+            ccSearch.classList.remove('on-focus');
+        })
+    }
+</script>
+
+</html>
