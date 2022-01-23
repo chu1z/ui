@@ -1,0 +1,1127 @@
+
+@import '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 20:40:58 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-27 22:45:36
+ */
+/* css reset */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 20:39:36 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-15 21:14:50
+ */
+/* 去掉所有元素的内外边距 */
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, img,  ul, li, form, label, input,
+table, tbody, tfoot, thead, tr, th, td,
+audio, video  {
+    margin: 0;
+    padding: 0;
+}
+/* 统一全局字体 */
+body {
+    font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif
+}
+/* 列表元素去掉默认的列表样式 */
+ol,
+ul {
+    list-style: none;
+}
+/* Table元素的边框折叠 */
+table {
+    /*如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性*/
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* 去掉默认的下划线 */
+a {
+    text-decoration: none;
+}
+/* 去掉input自带的边缘效果和背景颜色 */
+input {
+    outline: none;
+    /*outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用*/
+    background: none;
+}
+/* 公共样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 20:39:27 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-15 21:23:00
+ */
+/* 屏幕宽度在340px至410px时，基准尺寸使用20px */
+html {
+    font-size: 20px;
+    height: 100%;
+}
+/* 屏幕宽度小于340px时，基准尺寸使用18px */
+@media (max-width:340px) {
+    html {
+        font-size: 18px;
+    }
+}
+/* 屏幕宽度大于410px时，基准尺寸使用22px */
+@media (min-width:410px) {
+    html {
+        font-size: 22px;
+    }
+}
+/* body默认样式 */
+body {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+}
+.cc-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 300;
+}
+/* 字体图标 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 20:44:38 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-22 20:39:08
+ */
+/* 字体图标，依赖font-awesome */
+.fa {
+    /* display: inline-block; */
+    text-align: center;
+}
+/* 垂直方向上振动 */
+.fa-vibrate-y {
+    -webkit-animation: fa-vibrate-y 1.5s infinite ease-in;
+            animation: fa-vibrate-y 1.5s infinite ease-in;
+}
+@-webkit-keyframes fa-vibrate-y {
+    0% {
+        -webkit-transform: translateY(-10%);
+                transform: translateY(-10%);
+    }
+
+    50% {
+        -webkit-transform: translateY(10%);
+                transform: translateY(10%);
+    }
+
+    100% {
+        -webkit-transform: translateY(-10%);
+                transform: translateY(-10%);
+    }
+}
+@keyframes fa-vibrate-y {
+    0% {
+        -webkit-transform: translateY(-10%);
+                transform: translateY(-10%);
+    }
+
+    50% {
+        -webkit-transform: translateY(10%);
+                transform: translateY(10%);
+    }
+
+    100% {
+        -webkit-transform: translateY(-10%);
+                transform: translateY(-10%);
+    }
+}
+/* 标题栏样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 21:09:23 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-15 21:43:57
+ */
+/* 头部导航条 */
+.cc-header {
+    display: -webkit-box;
+    display: flex;
+    position: fixed;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    max-width: 640px;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    text-align: center;
+    top: 0;
+    z-index: 200;
+    border-bottom: 1px solid #ddd;
+    background: #f8f8f8;
+}
+/* 左侧功能区 */
+.cc-header>.left {
+    flex-basis: 3rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+/* 中间标题部分 */
+.cc-header>.title {
+    -webkit-box-flex: 1;
+            flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cc-header>.right {
+    flex-basis: 3rem;
+    flex-shrink: 0;
+}
+/* 内容区样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 21:13:22 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 22:03:51
+ */
+/* 内容区 */
+.cc-content {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+}
+/* 根据header和navbar自动适应内容区高度 */
+.cc-header~.cc-content {
+    padding-top: 2.3rem;
+}
+.cc-navbar~.cc-content {
+    padding-bottom: 2.5rem;
+}
+/* 内容分区 -- Panel 面板 */
+/* Panel 标题 */
+.cc-content .cc-panel-title {
+    height: 1.8rem;
+    line-height: 1.8rem;
+    padding-left: 1rem;
+    color: #aaa;
+    background: #fff;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    font-weight: normal;
+}
+/* Panel 内容区 */
+.cc-content .cc-panel-body {
+    position: relative;
+    margin-bottom: .6rem;
+    padding: .6rem 1rem;
+    background: #fff;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+/* 可手动设置内容区是否有内边距 */
+.cc-content .cc-panel-body.no-padding {
+    padding: 0;
+}
+/* 导航条样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 21:12:09 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-15 21:55:30
+ */
+/* 底部导航栏 */
+.cc-navbar {
+    display: -webkit-box;
+    display: flex;
+    position: fixed;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    max-width: 640px;
+    height: 2.5rem;
+    border-top: 1px solid #ddd;
+    z-index: 200;
+    background: #f8f8f8;
+    text-align: center;
+}
+/* 导航项目 */
+.cc-navbar>.navbar-item {
+    -webkit-box-flex: 1;
+            flex: 1;
+    color: #808080;
+}
+/* 被选中的样式 */
+.cc-navbar > .navbar-item.active{
+    color: #09BB07;
+}
+/* 导航图标 */
+.cc-navbar > .navbar-item > .icon{
+    padding: .3rem 0 .1rem;
+    font-size: 1.1rem;
+}
+/* 导航名称 */
+.cc-navbar > .navbar-item > .name{
+    display: block;
+    font-size: .5rem;
+}
+/* 表单的样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-15 22:48:45 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-15 23:03:03
+ */
+/* 表单的单行容器 */
+.cc-form-item {
+    display: -webkit-box;
+    display: flex;
+    position: relative;
+    padding-left: 1rem;
+    border-bottom: 1px solid #eee;
+}
+/* 去掉最后一行的下边框 */
+.cc-form-item:last-child {
+    border-bottom: none;
+}
+/* 表单标签 */
+.cc-form-item>.cc-form-label {
+    display: block;
+    width: 3.5rem;
+    font-size: .8rem;
+    color: #666;
+    height: 2rem;
+    line-height: 2rem;
+}
+/* 表单内容区 */
+.cc-form-item>.cc-form-body {
+    -webkit-box-flex: 1;
+            flex: 1;
+}
+/* 输入框 */
+.cc-form-item>.cc-form-body>.cc-input {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: .8rem;
+    border: none;
+}
+/* 表单中的清空按钮 */
+.cc-form-item>.cc-form-body>.cc-input-reset {
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+    top: 50%;
+    margin-top: -.4rem;
+    right: 1rem;
+    font-size: .6rem;
+    background: #aaa;
+    color: #fff;
+    border-radius: 50%;
+}
+/* 表单中的错误提示按钮 */
+.cc-form-item>.cc-form-body>.cc-input-warning {
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+    top: 50%;
+    margin-top: -.4rem;
+    right: 1rem;
+    font-size: .6rem;
+    color: red;
+    border-radius: 50%;
+    border: 1px solid red;
+}
+/* 自定义单选 */
+.cc-form-item>.cc-radio {
+    -webkit-box-flex: 1;
+            flex: 1;
+    font-size: .8rem;
+    line-height: 2rem;
+}
+/* 未选中状态的图标 */
+.cc-form-item>.cc-radio>.cc-radio-icon {
+    margin-right: .5rem;
+    color: #09BB07;
+    visibility: hidden;
+}
+/* 选中状态的图标 */
+.cc-form-item > .cc-radio.checked > .cc-radio-icon{
+    visibility: visible;
+}
+/* 隐藏的radio类型的input */
+.cc-form-item > .cc-radio > .cc-radio-input{
+    position: absolute;
+    left: -999rem;
+}
+/* 自定义多选 */
+.cc-form-item > .cc-check{
+    -webkit-box-flex: 1;
+            flex: 1;
+    font-size: .8rem;
+    line-height: 2rem;
+}
+/* 未选中时的图标 */
+.cc-form-item > .cc-check > .cc-check-icon{
+    margin-right: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: rgba(0,0,0,0);
+    font-size: .6rem;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+}
+/* 选中时的图标 */
+.cc-form-item > .cc-check.checked > .cc-check-icon{
+    background: #09BB07;
+    color: #fff;
+    border-color: rgba(0,0,0,0)
+}
+/* 隐藏的check类型的input */
+.cc-form-item > .cc-check > .cc-check-input{
+    position: absolute;
+    left: -999rem;
+}
+/* 按钮的样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-16 22:20:11 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 22:49:14
+ */
+/* 按钮默认样式 */
+.cc-btn {
+    display: block;
+    position: relative;
+    width: 10rem;
+    margin: 0 auto;
+    padding: .5rem 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: .7rem;
+    text-align: center;
+    color: #000000;
+    border-radius: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-user-select:none;
+       -moz-user-select:none;
+        -ms-user-select:none;
+            user-select:none;
+    
+}
+/* 定制主操作按钮样式 */
+.cc-btn.cc-btn-primary {
+    background: #1AAD19;
+    color: #fff;
+}
+/* 定制警示类按钮样式 */
+.cc-btn.cc-btn-warning {
+    background-color: #E64340;
+    color: #fff;
+}
+/* 定制不可用按钮的样式 */
+.cc-btn.cc-btn-disabled{
+    background-color: #F7F7F7;
+    color: #999;
+    opacity: .6; 
+}
+.cc-btn.cc-btn-large{
+    width: 100%;
+    font-size: .9rem;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+.cc-btn.cc-btn-small{
+    display: inline-block;
+    width: 3rem;
+    padding: .2rem 0;
+    font-size: .7rem;
+}
+/* 搜索框样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-16 23:13:53 
+ * @Last Modified by:   chu 
+ * @Last Modified time: 2021-12-16 23:13:53 
+ */
+/* 搜索框 */
+.cc-search {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    z-index: 110;
+}
+/* 搜索状态中，覆盖内容区 */
+.cc-search.on-focus {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+/* 处理有标题栏的情况 */
+.cc-header~.cc-content .cc-search.on-focus {
+    top: 2.3rem;
+}
+/* 处理有导航栏的情况 */
+.cc-navbar~.cc-content .cc-search.on-focus {
+    bottom: 2.5rem;
+}
+/* 搜索栏中的表单 */
+.cc-search>.cc-search-form {
+    display: -webkit-box;
+    display: flex;
+    height: 2.3rem;
+    /*align-items 属性就是用来标记弹性布局里的元素在侧轴（也就是和 flex-direction 方向相垂直的轴）上的对齐方式，*/
+    -webkit-box-align: center;
+            align-items: center;
+}
+/* 输入框的容器 */
+.cc-search>.cc-search-form>.cc-search-input-wrap {
+    -webkit-box-flex: 1;
+            flex: 1;
+    position: relative;
+    padding: 0 .5rem;
+}
+/* 取消按钮 */
+.cc-search>.cc-search-form>.cc-search-cancel {
+    -webkit-box-flex: 0;
+            flex: 0 0 2.2rem;
+    padding-right: .5rem;
+    text-align: center;
+    font-size: .7rem;
+    display: none;
+}
+/* 对取消按钮的控制 */
+.cc-search.on-focus>.cc-search-form>.cc-search-cancel {
+    display: block;
+}
+/* 搜索图标 */
+.cc-search .cc-search-icon {
+    position: absolute;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .7rem;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #ccc;
+}
+/* 输入框的样式 */
+.cc-search .cc-search-input {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 1.6rem;
+    border: none;
+    font-size: .8rem;
+    padding-left: 1.5rem;
+    background: #fff;
+    border-radius: .2rem;
+}
+/* 清空按钮的样式 */
+.cc-search .cc-search-clear {
+    position: absolute;
+    height: .8rem;
+    line-height: .8rem;
+    width: .8rem;
+    font-size: .6rem;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    right: 1rem;
+    border-radius: 50%;
+    color: #fff;
+    background: #ccc;
+    display: none;
+}
+/* 对清空按钮的控制 */
+.cc-search.on-focus .cc-search-input:valid+.cc-search-clear {
+    display: block;
+}
+/* 搜索建议 */
+.cc-search>.cc-search-suggest {
+    display: none;
+}
+.cc-search.on-focus>.cc-search-suggest {
+    display: block;
+}
+/* 搜索建议的内容 */
+.cc-search>.cc-search-suggest>.cc-suggest-item {
+    padding-left: 1rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: .8rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+/* 列表的样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-19 14:55:38 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 21:28:59
+ */
+/* 列表里每一行的容器 */
+.cc-list>.cc-list-item {
+    display: -webkit-box;
+    display: flex;
+    position: relative;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    background: #fff;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+/* 列表项的图片容器 */
+.cc-list .item-img-wrap {
+    -webkit-box-flex: 0;
+            flex: 0 0 5rem;
+    height: 5rem;
+    margin-right: .5rem;
+    border-radius: .2rem;
+    overflow: hidden;
+}
+.cc-list .item-img-wrap>.item-img {
+    width: 100%;
+    height: 100%;
+}
+.cc-list .item-content-wrap {
+    position: relative;
+    -webkit-box-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+}
+.cc-list .item-content-wrap>.item-title {
+    height: 2rem;
+    line-height: 1rem;
+    font-size: .8rem;
+    font-weight: normal;
+    overflow: hidden;
+    /*
+    这三条固定的搭配就可以实现文本多行的截断，并且在截断处自动追加省略号。但需要注意的是，这几个属性并不是 CSS3 中标准的属性，并且只有在 webkit 内核的浏览器中且加上 - webkit - 前缀才有效。我们最需要的是对多行文本超出的部分做隐藏，而对添加省略号的需求不是很强，所以这几个元素可以配合 height 和 line-height 来使用，这样哪怕这三个属性失效了，也能保证正常的显示效果。
+    */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* 列表项的价格字段 */
+.cc-list .item-content-wrap > .item-price{
+    font-size: .8rem;
+    font-weight: 600;
+    color: #e0652f;
+}
+/* 列表项的描述字段 */
+.cc-list .item-content-wrap > .item-desc{    
+    color: #999;
+    font-size: .6rem;
+}
+/* 网格组件的样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-19 15:29:26 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 21:37:47
+ */
+.cc-grid {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+}
+.cc-grid>.cc-grid-item {
+    position: relative;
+    -webkit-box-flex: 1;
+            flex: 1 1 33%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 1.2rem 0;
+    text-align: center;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+/* 默认是3列 */
+.cc-grid .cc-grid-item:nth-child(3n) {
+    border-right: none;
+}
+/* grid内容区 */
+.cc-grid>.cc-grid-item>.cc-grid-icon {
+    font-size: 1.5rem;
+    color: #aaa;
+    margin-bottom: .5rem;
+}
+.cc-grid>.cc-grid-item>.cc-grid-label {
+    font-size: .6rem;
+    color: #333;
+}
+/* 不需要边框时取消容器上的border */
+.cc-grid.no-border {
+    border: none;
+}
+/* 不需要边框时取消格子上所以的border */
+.cc-grid.no-border>.cc-grid-item {
+    border: none !important;
+}
+/* 两列网格 */
+.cc-grid.cc-grid-2 .cc-grid-item {
+    border-right: 1px solid #ddd;
+    flex-basis: 50%;
+    padding: 1.8rem 0;
+}
+.cc-grid.tt-grid-2 .cc-grid-item:nth-child(2n) {
+    border-right: none;
+}
+/* 四列网格 */
+.cc-grid.cc-grid-4 .cc-grid-item {
+    border-right: 1px solid #ddd;
+    flex-basis: 25%;
+    padding: .9rem 0;
+}
+.cc-grid.tt-grid-4 .cc-grid-item:nth-child(4n) {
+    border-right: none;
+}
+/* 五列网格 */
+.cc-grid.cc-grid-5 .cc-grid-item{
+    border-right: 1px solid #ddd;
+    flex-basis: 20%;
+    padding: .6rem 0;
+}
+.cc-grid.tt-grid-5 .cc-grid-item:nth-child(5n){
+    border-right: none;
+}
+/* 菜单组件的样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-19 21:48:47 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 22:29:16
+ */
+/* 菜单项 */
+.cc-menu>.cc-menu-item {
+    display: -webkit-box;
+    display: flex;
+    height: 2.3rem;
+    padding: 0 1rem;
+    -webkit-box-align: center;
+            align-items: center;
+    border-bottom: 1px solid #eee;
+    font-size: .8rem;
+}
+/* 菜单名称 */
+.cc-menu>.cc-menu-item>.cc-menu-name {
+    -webkit-box-flex: 1;
+            flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #333;
+}
+/* 菜单信息 */
+.cc-menu>.cc-menu-item>.cc-menu-value {
+    max-width: 5rem;
+    height: 1rem;
+    line-height: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #999;
+}
+/* 下级操作引导图标 */
+.cc-menu>.cc-menu-item>.cc-menu-icon {
+    margin-left: .3rem;
+    color: #999;
+}
+/* 切换开关 */
+.cc-menu>.cc-menu-item>.cc-switch {
+    position: relative;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    width: 2.6rem;
+    height: 1.4rem;
+    border: 1px solid #ccc;
+    outline: 0;
+    border-radius: .75rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-transition: background-color .3s, border .3s;
+    transition: background-color .3s, border .3s;
+
+    /* 去掉webkit内核里默认的样式 */
+    -webkit-appearance: none;
+    /* 去掉webkit内核里默认的点击效果 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* 选中状态下，改变开关边框和背景色 */
+.cc-menu>.cc-menu-item>.cc-switch:checked {
+    border-color: #07C160;
+    background-color: #07C160;
+}
+/* 使用::after伪元素实现圆形按钮的样式 */
+.cc-menu>.cc-menu-item>.cc-switch::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: .7rem;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+    -webkit-transition: left .3s;
+    transition: left .3s;
+}
+/* 选中状态下，更改圆形按钮的位置 */
+.cc-menu>.cc-menu-item>.cc-switch:checked::after {
+    left: 1.2rem;
+}
+/* 模态框组件的样式 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-19 22:40:25 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-19 23:03:03
+ */
+.cc-modal {
+    display: none;
+}
+.cc-modal.show {
+    display: block;
+}
+.cc-modal .cc-modal-wrap {
+    position: absolute;
+    width: 75%;
+    max-width: 480px;
+    top: 45%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #fff;
+    border-radius: .4rem;
+    z-index: 301;
+}
+.cc-modal .cc-modal-body{
+    padding: 1.8rem .8rem 1.5rem;
+    text-align: center;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+}
+/* 模态框尾部 */
+.cc-modal .cc-modal-footer{
+    display: -webkit-box;
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+/* 模态框尾部里按钮的样式 */
+.cc-modal .cc-modal-footer .cc-btn{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    font-size: .8rem;
+}
+/* 模态框尾部中的按钮加上分隔 */
+.cc-modal .cc-modal-footer .cc-btn + .cc-btn{
+    border-left: 1px solid #ddd;
+}
+/* 控制模态框内容区的内边距 */
+.cc-modal .cc-modal-body.no-padding{
+    padding: 0;
+}
+/* 图片形式的模态框样式 */
+.cc-modal .cc-modal-body .cc-modal-img{
+    /*有些浏览器里img默认的定位里会有个边，指定block后就去掉了*/
+    display: block;
+    width: 100%;
+    border-radius: .3rem;
+}
+.cc-modal .cc-modal-close{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 1.3rem;
+    line-height: 1.3rem;
+    margin: auto;
+    bottom: -3rem;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 100;
+    color: #eee;
+    border: 1px solid #eee;
+    border-radius: 50%;
+}
+/* 加载提示组件 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-22 20:16:47 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-22 20:34:55
+ */
+/* 页面加载提示组件 */
+.cc-loading {
+    padding: 1rem 0;
+    text-align: center;
+}
+/* 页面加载提示组件的图标 */
+.cc-loading>.cc-loading-icon {
+    font-size: 4.5rem;
+    color: rgba(0, 0, 0, .05);
+}
+/* 页面加载提示组件的提示信息 */
+.cc-loading>.cc-loading-info {
+    display: block;
+    margin-top: .6rem;
+    font-size: .8rem;
+    color: #ccc;
+}
+/* 单行加载提示组件 */
+.cc-loading-inline {
+    margin: 1.5rem auto 1rem;
+    width: 12.5rem;
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-align: center;
+    color: #999;
+    height: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+/* 单行加载提示组件的文本信息 */
+.cc-loading-inline>.cc-loading-info {
+    display: inline-block;
+    padding: 0 .5rem;
+    position: relative;
+    top: -.7rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .7rem;
+    background: #fff;
+}
+/* 单行加载提示组件的图标 */
+.cc-loading-inline > .cc-loading-info > .cc-loading-icon{
+    color: rgba(0, 0, 0, .2);
+}
+/* Toast弹出提示组件 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-22 20:45:51 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-22 20:52:40
+ */
+/* Toast提示工具 */
+.cc-toast {
+    position: fixed;
+    width: 7rem;
+    top: 45%;
+    -webkit-transform: translateY(-40%);
+            transform: translateY(-40%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 1rem 0;
+    opacity: 0;
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, .6);
+    border-radius: .4rem;
+    -webkit-transition: opacity .3s, -webkit-transform .3s;
+    transition: opacity .3s, -webkit-transform .3s;
+    transition: transform .3s, opacity .3s;
+    transition: transform .3s, opacity .3s, -webkit-transform .3s;
+    z-index: 301;
+}
+/* 显示Toast组件 */
+.cc-toast.show{
+    opacity: 1;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+/* Toast组件中的图标 */
+.cc-toast > .cc-toast-icon{
+    font-size: 2.2rem;
+}
+/* Toast组件中的文本部分 */
+.cc-toast > .cc-toast-info{
+    margin-top: .5rem;
+    font-size: .7rem;
+}
+/* actionSheet可选菜单 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-27 22:10:32 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-27 22:27:04
+ */
+/* 弹出菜单容器，默认隐藏在屏幕的下面 */
+.cc-action-sheet>.cc-action-sheet-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 640px;
+    margin: auto;
+    background: #eee;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: -webkit-transform .3s ease;
+    transition: transform .3s ease;
+    transition: transform .3s ease, -webkit-transform .3s ease;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    z-index: 301;
+}
+.cc-action-sheet.show .cc-action-sheet-wrap {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+}
+.cc-action-sheet>.cc-mask {
+    opacity: 0;
+    /* 屏蔽元素的点击事件 */
+    pointer-events: none;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
+/* 菜单弹出的时候显示蒙版 */
+.cc-action-sheet.show > .cc-mask{
+    opacity: 1;
+    pointer-events: auto;
+}
+/* 弹出菜单头部 */
+.cc-action-sheet .cc-action-sheet-header{
+    padding: 0 2rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    text-align: center;
+    height: 3rem;
+    background: #fff;
+}
+/* 头部标题，用来描述菜单作用 */
+.cc-action-sheet .cc-action-sheet-header > .cc-action-sheet-title{
+    -webkit-box-flex: 1;
+            flex: 1;
+    font-size: .7rem;
+    line-height: 1rem;
+    font-weight: normal;
+    color: rgba(0, 0, 0, .3);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* 中间主要内容区 */
+.cc-action-sheet .cc-action-sheet-body{
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    background: #fff;
+}
+/* 菜单尾部，通常用来放取消按钮 */
+.cc-action-sheet .cc-action-sheet-footer{
+    margin-top: .3rem;
+    background: #fff;
+}
+/* 每个菜单项 */
+.cc-action-sheet .cc-action-sheet-menu{
+    display: block;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    font-size: .8rem;
+    text-align: center;
+}
+/* 菜单项的边框控制 */
+.cc-action-sheet .cc-action-sheet-menu + .cc-action-sheet-menu{
+    display: block;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+/* article文本组件 */
+/*
+ * @Author: chu 
+ * @Date: 2021-12-27 22:46:38 
+ * @Last Modified by: chu
+ * @Last Modified time: 2021-12-27 22:47:10
+ */
+/* 文章组件 */
+.cc-article {
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: .8rem;
+    line-height: 1.6rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+/* 文章被折叠的情况 */
+.cc-article.fold{
+    max-height: 100%;
+    overflow: hidden;
+}
+/* 展开按钮 */
+.cc-article .cc-article-unfold-btn{
+    display: none;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5rem;
+    padding-top: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #e0652f;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255,255,255,0)), to(#fff));
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0, #fff 100%);
+}
+/* 控制展开按钮的显示 */
+.cc-article.fold .cc-article-unfold-btn{
+    display: block;
+}
+/* 文章大标题 */
+.cc-article .cc-article-title{
+    margin: .5rem 0 1rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+/* 文章信息，用来放作者、创作时间等 */
+.cc-article .cc-article-info{
+    font-size: .8rem;
+    color: #aaa;
+}
+/* 文章小标题 */
+.cc-article .cc-article-subtitle{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+/* 文章段落 */
+.cc-article .cc-article-paragraph{
+    margin: .5rem 0 1rem;
+}
+/* 文章图片 */
+.cc-article .cc-article-img{
+    max-width: 100%;
+    margin: auto;
+}
